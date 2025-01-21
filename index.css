@@ -1,43 +1,35 @@
 body{
-    background-color: #d1d1d1;
+    background-color: #f1f1f1;
+}
+.container-fluid,.container{
+    background-color: white;
+}
+.navbar{
+    background-color: white;
+}
+.input-group{
+    width: 50%;   
+}
+.input-group .input-group-text{
+    background-color: #f1f1f1;
+    
 }
 
-.nav-bar{
-    background-color: white;
+.input-group .form-control{
+    background-color: #f1f1f1;
+}
+
+.initial-items-list{
+    width: 85vw;
+    display: grid;
+    grid-template-columns: 83% 17%;
+    gap: 10px;
+}
+ 
+.cards-wrapper{
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    position: fixed;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    padding: 15px;
 }
-
-.searchbar{
-    background-color: #d1d1d1;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.searchbar input{
-    background-color: #d1d1d1;
-    border:none;
-}
-
-.searchbar input:focus{
-    border:none;
-}
-
-.loginlink{
-    text-decoration: none;
-    background-color: white;
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.loginlink:hover{
-    background-color: blue;
-    color: white;
+ 
+.card{
+    margin: 0.5rem;
 }
