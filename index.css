@@ -1,18 +1,23 @@
 body{
     background-color: #f1f1f1;
 }
-.container-fluid,.container{
+
+.container-fluid,
+.container{
     background-color: white;
 }
+
 .navbar{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
+
 .input-group{
-    width: 50%;   
+    width: 50%;
 }
+
 .input-group .input-group-text{
     background-color: #f1f1f1;
-    
+
 }
 
 .input-group .form-control{
@@ -25,11 +30,103 @@ body{
     grid-template-columns: 83% 17%;
     gap: 10px;
 }
- 
+
 .cards-wrapper{
     display: flex;
 }
- 
+
 .card{
     margin: 0.5rem;
+}
+
+.dropdown-men{
+    display: none;
+}
+
+.btn-group{
+    position: relative;
+    display: inline-block;
+}
+
+.btn-group .btn1{
+    padding: 10px 20px;
+    color: white;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.listfor3dot{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 150px;
+    z-index: 10;
+}
+
+.listfor3dot li{
+    padding: 10px 20px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.listfor3dot li:hover{
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-group .btn1:hover{
+    border: 2px solid #f1f1f1;
+}
+
+.btn-group:hover .listfor3dot{
+    display: block;
+}
+
+.card-css{
+    margin-top: 70px;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: hidden;
+    width: 18rem;
+    max-height: 350px;
+}
+.card img{
+    max-height: 200px;
+    max-width: 200px;
+}
+.card-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+}
+.dn{
+    display: block;
+}
+.instruments{
+    overflow-x: scroll;
+}
+.instruments2{
+    overflow-x: scroll;
+    width: 80%;
+}
+@media (max-width:992px)
+{
+    
 }
