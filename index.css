@@ -73,7 +73,6 @@ body{
     z-index: 10;
 }
 
-
 .listfor3dot li{
     padding: 10px 20px;
     width: 200px;
@@ -98,15 +97,36 @@ body{
 }
 
 .card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: hidden;
     width: 18rem;
+    max-height: 350px;
 }
-
-.col-3 img{
-    height: 350px; 
-    margin-top: -20px; 
-    margin-left: 30px;
+.card img{
+    max-height: 200px;
+    max-width: 200px;
 }
-
+.card-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+}
+.dn{
+    display: block;
+}
 .instruments{
     overflow-x: scroll;
+}
+.instruments2{
+    overflow-x: scroll;
+    width: 80%;
+}
+@media (max-width:992px)
+{
+    
 }
