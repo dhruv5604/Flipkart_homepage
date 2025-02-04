@@ -31,19 +31,11 @@ body {
     gap: 10px;
 }
 
-/* .cards-wrapper {
-    display: flex;
-} */
-
 .cards-wrapper {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
 }
-
-/* .card {
-    margin: 0.5rem;
-} */
 
 .card {
     display: flex;
@@ -52,7 +44,7 @@ body {
     flex-direction: column;
     overflow-y: hidden;
     width: 18rem;
-    max-height: 350px; /* Ensuring all cards have a uniform height */
+    max-height: 350px; 
     flex-shrink: 0;
 }
 
@@ -130,33 +122,21 @@ body {
     max-width: 200px;
 }
 
-/* .card-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 50px;
-} */
-
 .card-body {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 80px; /* Matching card body height */
+    height: 80px;
 }
 
 .dn {
     display: block;
 }
-/* 
-.instruments {
-    overflow-x: scroll;
-} */
 
 .instruments {
     display: flex;
-    overflow-x: scroll; /* Ensures scrolling for responsiveness */
+    overflow-x: scroll; 
     gap: 10px;
 }
 
