@@ -13,6 +13,7 @@ if(product){
     document.getElementById("productId").value = product.id;
     document.getElementById("productPrice").value = product.price;
     document.getElementById("productDescription").value = product.description;
+    document.getElementById("categoryList").value = product.category;
 }
 
 document.getElementById("productImage").addEventListener("change", function () {
@@ -30,11 +31,12 @@ function updateProduct(){
     const id = document.getElementById("productId").value;
     const price = document.getElementById("productPrice").value;
     const description = document.getElementById("productDescription").value;
+    const category = document.getElementById("categoryList").value;
 
     let index = products.findIndex(p => p.id == id);
     if (index != -1) {
         let image =localStorage.getItem("updatedImage") || products[index].image;
-        products[index] = {id, image, price, description};
+        products[index] = {id, image, price, description, category};
         localStorage.setItem("flipkartProducts",JSON.stringify(products));
         localStorage.removeItem("editProductId");
         localStorage.removeItem("updatedImage");

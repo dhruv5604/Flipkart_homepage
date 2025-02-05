@@ -44,7 +44,7 @@ body {
     flex-direction: column;
     overflow-y: hidden;
     width: 18rem;
-    max-height: 350px; 
+    /* max-height: 400px; */
     flex-shrink: 0;
 }
 

@@ -1,9 +1,12 @@
 let products = JSON.parse(localStorage.getItem("flipkartProducts")) || []
 
+
 showProducts(products);
+
 
 function showProducts(products) {
     const productList = document.getElementById("product-list");
+    
     productList.innerHTML = "";
     products.forEach((product, index) => {
         productList.innerHTML += `
@@ -12,6 +15,7 @@ function showProducts(products) {
             <td><img src="${product.image}"></td>
             <td>${product.price}</td>
             <td>${product.description}</td>
+            <td>${product.category}</td>
             <td>
                 <button onclick="editProduct(${product.id})">Edit</button>
                 <button onclick="deleteProduct(${index})">Delete</button>
@@ -24,6 +28,7 @@ function addProduct() {
     const price = document.getElementById("productPrice").value.trim();
     const image = document.getElementById("productImage");
     const description = document.getElementById("productDescription").value.trim();
+    const category = document.getElementById("categoryList").value.trim();
 
     if (!price || !description) {
         alert("Please fill in all details");
@@ -39,7 +44,8 @@ function addProduct() {
             id: parseInt(lastId) + 1,
             image: imageBase64,
             price,
-            description
+            description,
+            category
         });
         localStorage.setItem("flipkartProducts", JSON.stringify(products));
 
@@ -49,6 +55,7 @@ function addProduct() {
     document.getElementById("productImage").value = "";
     document.getElementById("productPrice").value = "";
     document.getElementById("productDescription").value = "";
+    document.getElementById("categoryList").value = "";
 
     reader.readAsDataURL(file);
 }

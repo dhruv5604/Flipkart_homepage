@@ -3,22 +3,18 @@ let products = JSON.parse(localStorage.getItem("flipkartProducts")) || [];
 showProducts(products);
 
 function showProducts(products) {
-    let cardWrapper = document.getElementById("cards-wrapper-id");
-
-    if (!cardWrapper) {
-        console.error("Card wrapper not found!");
-        return;
-    }
-
-    cardWrapper.innerHTML = "";
 
     products.forEach((product) => {
+        let cardWrapper = (product.category == "fashion") ? document.getElementById("cards-wrapper-fashion") :
+            document.getElementById("cards-wrapper-accessory")
+        cardWrapper.innerHTML += "";
+
         let card = document.createElement("div");
         card.classList.add("card");
 
         let img = document.createElement("img");
         img.classList.add("card-img-top", "img-fluid");
-        img.src = product.image; 
+        img.src = product.image;
 
         let card_body = document.createElement("div");
         card_body.classList.add("card-body");
@@ -29,7 +25,7 @@ function showProducts(products) {
 
         let strongTag = document.createElement("strong");
         strongTag.classList.add("card-text");
-        strongTag.innerText = product.price 
+        strongTag.innerText = product.price
 
         card_body.appendChild(ptag);
         card_body.appendChild(strongTag);

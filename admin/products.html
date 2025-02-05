@@ -15,8 +15,6 @@
     <h1 style="text-align: center;">Welcome To Product Crud Operation</h1>
     <a type="button" class="btn btn-primary" href="../index.html">HomePage</a>
     <form action="" id="form1">
-        <!-- <label for="productName">Product Name:</label> -->
-        <!-- <input type="text" name="productName" id="productName" required /> -->
         <label for="productImage">Image URL:</label>
         <input
           type="file"
@@ -26,6 +24,12 @@
         />
         <label for="productPrice">Price:</label>
         <input type="number" name="productPrice" id="productPrice" required />
+        <label for="categoryList">Category:</label>
+        <select name="categoryList" id="categoryList">
+          <option value="default" selected disabled>select Category</option>
+          <option value="fashion">Fashion</option>
+          <option value="accessories">Accessories</option>
+        </select>
         <label for="productDescription">Description:</label>
         <textarea id="productDescription" name="pro" required></textarea>
         <input type="submit" value="Add product" />
@@ -52,13 +56,14 @@
               </div>
             </th>
             <th>Description</th>
+            <th>Category</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody id="product-list"></tbody>
       </table>
   
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

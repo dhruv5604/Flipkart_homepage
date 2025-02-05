@@ -16,6 +16,12 @@
         <input type="file" name="productImage" id="productImage" accept="image/*"/>
         <label for="productPrice">Price:</label>
         <input type="number" name="productPrice" id="productPrice" required />
+        <label for="categoryList">Category:</label>
+        <select name="categoryList" id="categoryList">
+          <option value="default" selected disabled>select Category</option>
+          <option value="fashion">Fashion</option>
+          <option value="accessories">Accessories</option>
+        </select>
         <label for="productDescription">Description:</label>
         <textarea id="productDescription" name="productDescription" required></textarea>
         <input type="submit" value="Update Product">
