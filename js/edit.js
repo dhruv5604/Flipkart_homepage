@@ -1,13 +1,23 @@
 let productId = localStorage.getItem("editProductId");
+let products = JSON.parse(localStorage.getItem("flipkartProducts"));
+let categories = JSON.parse(localStorage.getItem("flipkartCategories"));
 
 if(!productId){
     alert("Product not found!!!!");
     window.location.href = "index.html";
 }
 
-let products = JSON.parse(localStorage.getItem("flipkartProducts"));
-
 let product = products.find(p=>p.id == productId);
+
+categories.forEach((category) => {
+    let select = document.getElementById("categoryList");
+    let option = document.createElement("option");
+    option.value = category.newCategory;
+    option.innerHTML = category.newCategory;
+
+    select.appendChild(option);
+});
+
 
 if(product){
     document.getElementById("productId").value = product.id;
@@ -32,11 +42,13 @@ function updateProduct(){
     const price = document.getElementById("productPrice").value;
     const description = document.getElementById("productDescription").value;
     const category = document.getElementById("categoryList").value;
+    const tempCategory = categories.find(c => c.newCategory == category);
+    const categoryId = tempCategory.id;
 
     let index = products.findIndex(p => p.id == id);
     if (index != -1) {
         let image =localStorage.getItem("updatedImage") || products[index].image;
-        products[index] = {id, image, price, description, category};
+        products[index] = {id, image, price, description, categoryId, category};
         localStorage.setItem("flipkartProducts",JSON.stringify(products));
         localStorage.removeItem("editProductId");
         localStorage.removeItem("updatedImage");

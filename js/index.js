@@ -11,12 +11,12 @@ function showCategories(categories) {
         let categoryHTML = `
         <div class="container mt-3 p-2">
             <div class="row ms-2">
-                <h4>${category} Category</h4>
+                <h4>${category.newCategory} Category</h4>
             </div>
         </div>
         <div class="container instruments mb-3">
             <div class="d-flex">
-                <div class="cards-wrapper" id="cards-wrapper-${category.toLowerCase()}"></div>
+                <div class="cards-wrapper" id="cards-wrapper-${category.newCategory.toLowerCase()}"></div>
             </div>
         </div>`;
 
@@ -28,7 +28,7 @@ function showCategories(categories) {
 
 function showProducts(products) {
     categories.forEach((category) => {
-        let cardWrapper = document.getElementById(`cards-wrapper-${category.toLowerCase()}`);
+        let cardWrapper = document.getElementById(`cards-wrapper-${category.newCategory.toLowerCase()}`);
         if (cardWrapper) {
             cardWrapper.innerHTML = ""; 
         }
