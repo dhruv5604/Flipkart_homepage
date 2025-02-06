@@ -22,7 +22,6 @@ function showProducts(products) {
             <td><img src="${product.image}"></td>
             <td>${product.price}</td>
             <td>${product.description}</td>
-            <td>${product.categoryId}</td>
             <td>${product.category}</td>
             <td>
                 <button onclick="editProduct(${product.id})"><i class="fa-solid fa-pen"></i></button>
@@ -31,9 +30,6 @@ function showProducts(products) {
         </tr>`
     });
 }
-
-{/* <button onclick="editProduct(${product.id})">Edit</button> */}
-                // <button onclick="deleteProduct(${index})">Delete</button>
 
 function addProduct() {
     const price = document.getElementById("productPrice").value.trim();
@@ -80,7 +76,6 @@ document.getElementById("form1").addEventListener("submit", (e) => {
 })
 
 function editProduct(index) {
-    console
     localStorage.setItem("editProductId", index);
     window.location.href = "edit.html";
 }
@@ -92,3 +87,32 @@ function deleteProduct(index) {
         localStorage.setItem("flipkartProducts", JSON.stringify(products));
     }
 }
+
+
+const sortMethods = {
+    id: (a, b) => a.id - b.id,
+    price: (a, b) => a.price - b.price
+};
+
+document.querySelectorAll(".sort-btn").forEach((sortBtn) => {
+    sortBtn.addEventListener("click", () => {
+        let tempProducts = [...products];
+        let sortType = sortBtn.dataset.sort;
+        let sortOrder = sortBtn.dataset.order || "asc";
+
+        if (sortOrder === "asc") {
+            tempProducts.sort(sortMethods[sortType]);
+            sortBtn.dataset.order = "desc";
+            sortBtn.innerHTML = `<i class="fas fa-sort-up"></i>`;
+        } else if (sortOrder === "desc") {
+            tempProducts.sort((a, b) => sortMethods[sortType](b, a));
+            sortBtn.dataset.order = "none";
+            sortBtn.innerHTML = `<i class="fas fa-sort-down"></i>`;
+        } else {
+            tempProducts = [...products];
+            sortBtn.dataset.order = "asc";
+            sortBtn.innerHTML = `<i class="fas fa-sort"></i>`;
+        }
+        showProducts(tempProducts);
+    });
+});

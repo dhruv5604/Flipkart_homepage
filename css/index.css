@@ -44,7 +44,6 @@ body {
     flex-direction: column;
     overflow-y: hidden;
     width: 18rem;
-    /* max-height: 400px; */
     flex-shrink: 0;
 }
 
@@ -136,7 +135,7 @@ body {
 
 .instruments {
     display: flex;
-    overflow-x: scroll; 
+    overflow-x: scroll;
     gap: 10px;
 }
 
@@ -186,4 +185,3 @@ body {
         width: 100%;
     }
 }
-

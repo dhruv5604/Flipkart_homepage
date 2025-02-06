@@ -1,6 +1,6 @@
 let categories = JSON.parse(localStorage.getItem("flipkartCategories")) || [];
 let products = JSON.parse(localStorage.getItem("flipkartProducts")) || []
-
+localStorage.removeItem("editCategoryItem");
 showCategories(categories);
 
 function showCategories(categories) {
@@ -28,7 +28,17 @@ function showCategories(categories) {
 function addOrUpdateCategory() {
     const newCategoryItem = document.getElementById("newCategory").value.trim();
 
-    let index = localStorage.getItem("editCategoryItem") || false;
+    if (!newCategoryItem) {
+        alert("Please enter a category name");
+        return;
+    }
+
+    if (categories.findIndex(c => c.newCategory.toLowerCase() == newCategoryItem.toLowerCase()) != -1) {
+        alert("Category already exists!");
+        return;
+    }
+
+    let index = localStorage.getItem("editCategoryItem");
 
     //logic for update
     if (index) {
@@ -52,7 +62,6 @@ function addOrUpdateCategory() {
                     let description = products[index2].description;
                     let categoryId = products[index2].categoryId;
                     let category = categoryItem.newCategory
-                    console.log(category);
                     products[index2] = {
                         id,
                         image,
@@ -68,15 +77,7 @@ function addOrUpdateCategory() {
         return;
     }
 
-    if (!newCategoryItem) {
-        alert("Please enter a category name");
-        return;
-    }
-
-    if (categories.findIndex(c => c.newCategory.toLowerCase() == newCategoryItem.toLowerCase()) != -1) {
-        alert("Category already exists!");
-        return;
-    }
+    
 
     let lastId = categories.length > 0 ? categories[categories.length - 1].id : 0;
 
@@ -99,19 +100,19 @@ function editCategory(index) {
 function deleteCategory(index) {
     if (confirm("Are you sure you want to delete this category?")) {
         let categoryToDelete = categories[index];
-        // if (categoryToDelete.newCategory == "fashion" || categoryToDelete.newCategory == "accessories") {
-        //     alert("can't delete this category because they are default category");
-        //     return;
-        // }
+        if (categoryToDelete.newCategory == "fashion" || categoryToDelete.newCategory == "accessories") {
+            alert("can't delete this category because they are default category");
+            return;
+        }
         categories.splice(index, 1);
         localStorage.setItem("flipkartCategories", JSON.stringify(categories));
         showCategories(categories);
 
         products.forEach((product, index2) => {
-            let toBeDeleted = (product.category == categoryToDelete) ? index2 : -1;
+            let toBeDeleted = (product.category == categoryToDelete.newCategory) ? index2 : -1;
+          
             if (toBeDeleted != -1) {
                 products.splice(index2, 1);
-                showProducts(products);
                 localStorage.setItem("flipkartProducts", JSON.stringify(products));
             }
         })
@@ -122,3 +123,4 @@ document.getElementById("categoryForm").addEventListener("submit", (e) => {
     e.preventDefault();
     addOrUpdateCategory();
 });
+
