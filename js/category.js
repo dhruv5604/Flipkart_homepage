@@ -1,5 +1,5 @@
 let categories = JSON.parse(localStorage.getItem("flipkartCategories")) || [];
-let products = JSON.parse(localStorage.getItem("flipkartProducts")) || []
+let products = JSON.parse(localStorage.getItem("flipkartProducts"));
 localStorage.removeItem("editCategoryItem");
 showCategories(categories);
 
@@ -101,12 +101,12 @@ function editCategory(index) {
 }
 
 function deleteCategory(index) {
+    let categoryToDelete = categories[index];
+    if (categoryToDelete.newCategory == "fashion" || categoryToDelete.newCategory == "accessories") {
+        alert("You can't delete this category because they are default category");
+        return;
+    }
     if (confirm("Are you sure you want to delete this category?")) {
-        let categoryToDelete = categories[index];
-        if (categoryToDelete.newCategory == "fashion" || categoryToDelete.newCategory == "accessories") {
-            alert("can't delete this category because they are default category");
-            return;
-        }
         categories.splice(index, 1);
         localStorage.setItem("flipkartCategories", JSON.stringify(categories));
         showCategories(categories);
