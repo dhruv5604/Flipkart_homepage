@@ -25,12 +25,15 @@ function showProducts(products) {
             <td>${product.categoryId}</td>
             <td>${product.category}</td>
             <td>
-                <button onclick="editProduct(${product.id})">Edit</button>
-                <button onclick="deleteProduct(${index})">Delete</button>
+                <button onclick="editProduct(${product.id})"><i class="fa-solid fa-pen"></i></button>
+                <button onclick="deleteProduct(${index})"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>`
     });
 }
+
+{/* <button onclick="editProduct(${product.id})">Edit</button> */}
+                // <button onclick="deleteProduct(${index})">Delete</button>
 
 function addProduct() {
     const price = document.getElementById("productPrice").value.trim();

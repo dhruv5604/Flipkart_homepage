@@ -18,8 +18,8 @@ function showCategories(categories) {
             <td>${category.id}</td>
             <td>${category.newCategory}</td>
             <td>
-                <button onclick="editCategory(${index})">Edit</button>
-                <button onclick="deleteCategory(${index})">Delete</button>
+                <button onclick="editCategory(${index})"><i class="fa-solid fa-pen"></i></button>
+                <button onclick="deleteCategory(${index})"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>`;
     });

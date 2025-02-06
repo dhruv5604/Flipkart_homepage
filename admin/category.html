@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +13,34 @@
     <link rel="stylesheet" href="../css/product.css">
 
     <style>
-        body{
+        body {
             background-color: white;
         }
-        h1{
+
+        h1 {
             margin-top: 100px;
             text-align: center;
         }
+
+        td button {
+            /* display:inline */
+            width: 10%;
+            background: none;
+            border: none;
+        }
+        .id{
+            width: 20%;
+        }
+        .category{
+            width: 40%;
+        }
+        .action{
+            width: 20%;
+            /* display: none; */
+        }
     </style>
 </head>
+
 <body>
 
     <div class="container-fluid p-2">
@@ -33,12 +53,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-              
+
                 <ul class="navbar-nav ms-5">
                     <li class="nav-item me-3">
                         <a type="button" class="btn btn-primary" href="../index.html">HomePage</a>
                     </li>
-                       
+
                     <li class="nav-item me-3">
                         <a type="button" class="btn btn-primary" href="./index.html">Admin Panel</a>
                     </li>
@@ -52,23 +72,24 @@
 
     <div class="form2">
         <form id="categoryForm">
-          <input type="text" id="newCategory" placeholder="Enter New Category">
-          <button type="submit">Add Category</button>
+            <input type="text" id="newCategory" placeholder="Enter New Category">
+            <button type="submit">Add Category</button>
         </form>
-  
+
         <table>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Category</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="category-list"></tbody>
+            <thead>
+                <tr>
+                    <th class="id">Id</th>
+                    <th class="category">Category</th>
+                    <th class="action">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="category-list"></tbody>
         </table>
-      </div>
-    </div>  
+    </div>
+    </div>
 
     <script src="../js/category.js"></script>
 </body>
+
 </html>
