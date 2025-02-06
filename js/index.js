@@ -1,4 +1,4 @@
-let categories = JSON.parse(localStorage.getItem("flipkartCategories"));
+let categories = JSON.parse(localStorage.getItem("flipkartCategories")) || [];
 let products = JSON.parse(localStorage.getItem("flipkartProducts")) || [];
 
 showCategories(categories);

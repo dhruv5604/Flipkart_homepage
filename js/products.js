@@ -1,5 +1,5 @@
 let products = JSON.parse(localStorage.getItem("flipkartProducts")) || []
-let categories = JSON.parse(localStorage.getItem("flipkartCategories"));
+let categories = JSON.parse(localStorage.getItem("flipkartCategories")) || [];
 
 categories.forEach((category) => {
     let select = document.getElementById("categoryList");
@@ -36,6 +36,10 @@ function addProduct() {
     const image = document.getElementById("productImage");
     const description = document.getElementById("productDescription").value.trim();
     const category = document.getElementById("categoryList").value.trim();
+    if(!category){
+        alert("No category!!");
+        window.location.href = "category.html";
+    }
     const tempCategory = categories.find(c => c.newCategory == category);
     const categoryId = tempCategory.id;
 
