@@ -42,6 +42,7 @@ function addOrUpdateCategory() {
 
     //logic for update
     if (index) {
+
         let id = categories[index].id;
         categories[index] = {
             id: id,
@@ -77,8 +78,6 @@ function addOrUpdateCategory() {
         return;
     }
 
-    
-
     let lastId = categories.length > 0 ? categories[categories.length - 1].id : 0;
 
     categories.push({
@@ -93,6 +92,10 @@ function addOrUpdateCategory() {
 }
 
 function editCategory(index) {
+    if (categories[index].newCategory == "fashion" || categories[index].newCategory == "accessories") {
+        alert("You can't edit this category because this is default category!!!");
+        return;
+    }
     document.getElementById("newCategory").value = categories[index].newCategory;
     localStorage.setItem("editCategoryItem", index);
 }
@@ -110,7 +113,7 @@ function deleteCategory(index) {
 
         products.forEach((product, index2) => {
             let toBeDeleted = (product.category == categoryToDelete.newCategory) ? index2 : -1;
-          
+
             if (toBeDeleted != -1) {
                 products.splice(index2, 1);
                 localStorage.setItem("flipkartProducts", JSON.stringify(products));
