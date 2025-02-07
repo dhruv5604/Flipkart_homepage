@@ -13,15 +13,41 @@ function showCategories(categories) {
         option.value = category.newCategory;
         option.innerText = category.newCategory;
 
-        categoryList.innerHTML += `
-        <tr>
-            <td>${category.id}</td>
-            <td>${category.newCategory}</td>
-            <td>
-                <button onclick="editCategory(${index})"><i class="fa-solid fa-pen"></i></button>
-                <button onclick="deleteCategory(${index})"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        </tr>`;
+        // categoryList.innerHTML += `
+        // <tr>
+        //     <td>${category.id}</td>
+        //     <td>${category.newCategory}</td>
+        //     <td>
+        //         <button onclick="editCategory(${index})"><i class="fa-solid fa-pen"></i></button>
+        //         <button onclick="deleteCategory(${index})"><i class="fa-solid fa-trash"></i></button>
+        //     </td>
+        // </tr>`;
+
+        let tr = document.createElement("tr");
+        let td_id = document.createElement("td");
+        td_id.innerHTML = category.id;
+        
+        let td_name = document.createElement("td");
+        td_name.innerHTML = category.newCategory;
+
+        let td_btn = document.createElement("td");
+
+        let btn_edit = document.createElement("button");
+        btn_edit.innerHTML = '<i class="fa-solid fa-pen"></i>';
+        btn_edit.addEventListener("click" , () => editCategory(index));
+
+        let btn_delete = document.createElement("button");
+        btn_delete.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        btn_delete.addEventListener("click" , () => deleteCategory(index));
+
+        td_btn.appendChild(btn_edit);
+        td_btn.appendChild(btn_delete);
+
+        tr.appendChild(td_id);
+        tr.appendChild(td_name);
+        tr.appendChild(td_btn);
+
+        categoryList.appendChild(tr);
     });
 }
 
