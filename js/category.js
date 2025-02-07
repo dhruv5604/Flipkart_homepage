@@ -13,20 +13,10 @@ function showCategories(categories) {
         option.value = category.newCategory;
         option.innerText = category.newCategory;
 
-        // categoryList.innerHTML += `
-        // <tr>
-        //     <td>${category.id}</td>
-        //     <td>${category.newCategory}</td>
-        //     <td>
-        //         <button onclick="editCategory(${index})"><i class="fa-solid fa-pen"></i></button>
-        //         <button onclick="deleteCategory(${index})"><i class="fa-solid fa-trash"></i></button>
-        //     </td>
-        // </tr>`;
-
         let tr = document.createElement("tr");
         let td_id = document.createElement("td");
         td_id.innerHTML = category.id;
-        
+
         let td_name = document.createElement("td");
         td_name.innerHTML = category.newCategory;
 
@@ -34,11 +24,11 @@ function showCategories(categories) {
 
         let btn_edit = document.createElement("button");
         btn_edit.innerHTML = '<i class="fa-solid fa-pen"></i>';
-        btn_edit.addEventListener("click" , () => editCategory(index));
+        btn_edit.addEventListener("click", () => editCategory(index));
 
         let btn_delete = document.createElement("button");
         btn_delete.innerHTML = '<i class="fa-solid fa-trash"></i>';
-        btn_delete.addEventListener("click" , () => deleteCategory(index));
+        btn_delete.addEventListener("click", () => deleteCategory(index));
 
         td_btn.appendChild(btn_edit);
         td_btn.appendChild(btn_delete);
@@ -137,14 +127,15 @@ function deleteCategory(index) {
         localStorage.setItem("flipkartCategories", JSON.stringify(categories));
         showCategories(categories);
 
-        products.forEach((product, index2) => {
-            let toBeDeleted = (product.category == categoryToDelete.newCategory) ? index2 : -1;
+        let len = products.length
+        for (let i = 0; i < len; i++) {
+            console.log(i);
+            let ind = products.findIndex(product => product['category'] == categoryToDelete.newCategory);
+            if (ind != -1)
+                products.splice(ind, 1);
+        }
 
-            if (toBeDeleted != -1) {
-                products.splice(index2, 1);
-                localStorage.setItem("flipkartProducts", JSON.stringify(products));
-            }
-        })
+        localStorage.setItem("flipkartProducts", JSON.stringify(products));
     }
 }
 
