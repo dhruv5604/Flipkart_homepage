@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['uname'])){
+    header('Location:Task1_login/login.html');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +20,6 @@
 </head>
 
 <body>
-
     <div class="container-fluid p-2">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <a class="navbar-brand" href="#">
@@ -70,6 +76,9 @@
                     </li>
                     <li>
                         <a type="button" class="btn btn-primary" href="./admin/index.html">Admin Panel</a>
+                    </li>
+                    <li>
+                        <a type="button" class="btn btn-primary logout-btn" href="logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

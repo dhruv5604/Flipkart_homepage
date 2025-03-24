@@ -12,7 +12,7 @@ body {
 }
 
 .input-group {
-    width: 50%;
+    width: 45%;
 }
 
 .input-group .input-group-text {
@@ -184,4 +184,8 @@ body {
     .instruments2 {
         width: 100%;
     }
+}
+
+.logout-btn{
+    margin-left: 10px;
 }
